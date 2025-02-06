@@ -8,7 +8,7 @@ export class ChatService {
     constructor(private readonly configService: ConfigService) {
     }
 
-    async getResponse(query: string) {
+    async getResponse(pdfContent: string) {
         const model = new AzureChatOpenAI({
             model: "gpt-4o",
             temperature: 0.3,
@@ -21,20 +21,16 @@ export class ChatService {
         });
         const prompt = ChatPromptTemplate.fromMessages([[
             "system",
-            "Analyze the sentiment of the following user input. If the input contains sarcasm or negation, detect it. Examples:\n" +
-            "1. \"Oh great, another software update that crashes my phone. Amazing!\"  \n" +
-            "   Sentiment: Negative  \n" +
-            "   Sarcasm: Yes  \n" +
-            "\n" +
-            "2. \"I had a terrible experience. Never buying from here again.\"  \n" +
-            "   Sentiment: Negative  \n" +
-            "   Sarcasm: No  "
-            ],
-            ["human", "{input}"]
+            pdfContent
+        ],[
+                "human",
+                "{input}"
+            ]
         ]);
         const chain = prompt.pipe(model);
         const response = await chain.invoke({
-            input: query
+            input: `please give me content of 6th line `
+
         });
         return `${response.content}`;
     }
