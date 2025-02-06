@@ -97,3 +97,20 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+
+## Commands
+
+- pnpm add @nestjs/config
+- pnpm add pdf-parse
+- pnpm add --save-dev @types/multer
+- pnpm add @langchain/textsplitters
+- pnpm add @langchain/community
+- pnpm add @langchain/openai @langchain/core 
+- pnpm add @langchain/community/document_loaders/fs/pdf 
+- pnpm add @nestjs/platform-express multer
+- pnpm run db:migrate:dev
+- npx prisma init
+- prisma generate
+- prisma migrate dev
+- podman ps
+- podman compose -f docker-compose.local.yaml up -d ragdb

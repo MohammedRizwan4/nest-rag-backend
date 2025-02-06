@@ -3,10 +3,11 @@ import {UploadService} from "./upload.service";
 import {FileInterceptor} from "@nestjs/platform-express";
 import {diskStorage} from "multer";
 import {PDFLoader} from "@langchain/community/document_loaders/fs/pdf";
+import {EmbeddingService} from "./embedding.service";
 
 @Controller('upload')
 export class UploadController {
-    constructor(private readonly uploadService: UploadService) {
+    constructor(private readonly uploadService: UploadService, private readonly embeddingService: EmbeddingService) {
     }
 
     @Post("/file")
@@ -16,6 +17,6 @@ export class UploadController {
         }),
     }),)
     async uploadFile(@UploadedFile() file) {
-        return this.uploadService.uploadFile(file);
+        return this.embeddingService.embeddFile(file);
     }
 }
