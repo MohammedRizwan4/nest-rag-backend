@@ -116,7 +116,7 @@ Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 - podman compose -f docker-compose.local.yaml up -d ragdb
 - podman machine start
 - podman container start ragdb
-
+- ollama run qwen2.5:1.5b --verbose
 
 ## Errors
 The EPERM: operation not permitted, rename error usually happens due to:
@@ -129,6 +129,8 @@ The EPERM: operation not permitted, rename error usually happens due to:
   - tasklist | findstr /I "node"
   - taskkill /F /IM node.exe
   - npx prisma generate
+
+
 
 ![img.png](img.png)
 
