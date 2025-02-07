@@ -114,3 +114,17 @@ Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 - prisma migrate dev
 - podman ps
 - podman compose -f docker-compose.local.yaml up -d ragdb
+
+
+## Errors
+The EPERM: operation not permitted, rename error usually happens due to:
+
+1. File Locking Issues (Another process is using the Prisma query engine DLL).
+2. Permission Issues (Lack of admin privileges).
+3. Antivirus Interference (Blocking file operations).
+
+- solution: 
+  - tasklist | findstr /I "node"
+  - taskkill /F /IM node.exe
+  - npx prisma generate
+
