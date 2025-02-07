@@ -37,6 +37,14 @@ export class EmbeddingService {
     );
 
     console.log(await this.prismaVectorStore.addModels(embeddings));
+
+
+    console.log(await this.prismaVectorStore.similaritySearchWithScore("Ho Romeo and Juliet related"));
+
+
+
     return 'Success';
   }
+
+
 }
